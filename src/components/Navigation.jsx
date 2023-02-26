@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import User from "./User";
 import logo from "../assets/images/logo.svg";
 import menu from "../assets/images/icon-menu.svg";
 import close from "../assets/images/icon-close.svg";
@@ -33,6 +34,7 @@ function Navigation() {
           <li className="list-item">Contact</li>
         </ul>
       </nav>
+      <User />
     </header>
   );
 }
