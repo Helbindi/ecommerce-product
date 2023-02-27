@@ -12,7 +12,7 @@ function User({ cart, removeFromCart }) {
       <hr />
 
       {cart?.map((item) => (
-        <CartItem key={item.name} item={item} removeFromCart={removeFromCart} />
+        <CartItem key={item.uid} item={item} removeFromCart={removeFromCart} />
       ))}
 
       {cart.length === 0 ? (

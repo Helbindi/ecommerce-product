@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import prevImg from "../assets/images/icon-previous.svg";
 import nextImg from "../assets/images/icon-next.svg";
-import { productImages } from "../data/productImages";
 
-function ImageSlider({ toggleLightbox }) {
+function ImageSlider({ product, toggleLightbox }) {
   const [index, setIndex] = useState(0);
-  const maxSize = productImages.length - 1;
+  const maxSize = product.images.length - 1;
 
   function handleNext(e) {
     e.preventDefault();
@@ -51,7 +50,7 @@ function ImageSlider({ toggleLightbox }) {
         />
         <img
           className="product-img"
-          src={productImages[index].image}
+          src={product.images[index].image}
           alt="product-image"
           onClick={(e) => handleLightbox(e)}
         />
@@ -63,7 +62,7 @@ function ImageSlider({ toggleLightbox }) {
         />
       </div>
       <div className="thumbnails">
-        {productImages.map((item) => (
+        {product?.images.map((item) => (
           <img
             className={index + 1 === item.id ? "thumb-img active" : "thumb-img"}
             key={item.id}

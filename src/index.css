@@ -2,6 +2,7 @@
   font-family: "Kumbh Sans", sans-serif;
   line-height: 1.5;
 
+  scroll-behavior: smooth;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -187,6 +188,8 @@ p {
 .cart-product {
   display: grid;
   align-items: center;
+  justify-content: space-between;
+  text-align: left;
   gap: 0.5em;
   grid-template-areas:
     "img name name name del"
@@ -492,8 +495,8 @@ p {
     z-index: 8;
 
     display: flex;
-    align-items: center;
     justify-content: center;
+    padding-top: 10%;
   }
 
   .lightbox-close {

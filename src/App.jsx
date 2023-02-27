@@ -3,7 +3,7 @@ import Navigation from "./components/Navigation";
 import Product from "./components/Product";
 import ImageSlider from "./components/ImageSlider";
 import Lightbox from "./components/Lightbox";
-import { productData } from "./data/productImages";
+import { productData } from "./data/productData";
 import "./index.css";
 
 function App() {
@@ -24,14 +24,22 @@ function App() {
   */
   function addToCart(product) {
     setCart((prev) => {
-      // Check if item already exist in Cart, if so update with new quantity
       if (prev.length > 0) {
+        let updated = false;
+        // Check if item already exist in Cart, if so update with new quantity
         prev.forEach((item) => {
-          if (item.name === product.name) {
+          if (item.uid === product.uid) {
             item.quantity = product.quantity;
+            updated = true;
           }
         });
-        return [...prev];
+
+        // Either update the existing cart or add a new item to card
+        if (updated) {
+          return [...prev];
+        } else {
+          return [...prev, product];
+        }
       } else {
         return [...prev, product];
       }
@@ -44,18 +52,22 @@ function App() {
   */
   function removeFromCart(product) {
     setCart((prev) => {
-      const updated = prev.filter((item) => item.name !== product.name);
+      const updated = prev.filter((item) => item.uid !== product.uid);
       return [...updated];
     });
   }
   return (
     <div className="main-container">
       <Navigation cart={cart} removeFromCart={removeFromCart} />
-      {isActive && <Lightbox toggleLightbox={toggleLightbox} />}
-      <section className="product-container">
-        <ImageSlider toggleLightbox={toggleLightbox} />
+      <section className="products-container">
         {productData.map((product) => (
-          <Product key={product.name} product={product} addToCart={addToCart} />
+          <div className="product-container" key={product.uid}>
+            {isActive && (
+              <Lightbox product={product} toggleLightbox={toggleLightbox} />
+            )}
+            <ImageSlider product={product} toggleLightbox={toggleLightbox} />
+            <Product product={product} addToCart={addToCart} />
+          </div>
         ))}
       </section>
     </div>

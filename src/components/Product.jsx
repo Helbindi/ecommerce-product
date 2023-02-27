@@ -31,6 +31,7 @@ function Product({ product, addToCart }) {
     e.preventDefault();
     if (quantity > 0) {
       const cartItem = {
+        uid: product.uid,
         image: product.images[0].thumbnail,
         name: product.name,
         cost: finalCost,

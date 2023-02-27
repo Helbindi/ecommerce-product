@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ImageSlider from "./ImageSlider";
 import close from "../assets/images/icon-close.svg";
 
-function Lightbox({ toggleLightbox }) {
+function Lightbox({ product, toggleLightbox }) {
+  useEffect(() => {
+    document.body.scrollIntoView();
+  }, []);
   return (
     <div className="lightbox-container">
       <img
-        class="lightbox-close"
+        className="lightbox-close"
         src={close}
         alt="close-image"
         onClick={toggleLightbox}
       />
-      <ImageSlider toggleLightbox={toggleLightbox} />
+      <ImageSlider product={product} toggleLightbox={toggleLightbox} />
     </div>
   );
 }
