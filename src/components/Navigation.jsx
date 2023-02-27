@@ -4,7 +4,7 @@ import logo from "../assets/images/logo.svg";
 import menu from "../assets/images/icon-menu.svg";
 import close from "../assets/images/icon-close.svg";
 
-function Navigation() {
+function Navigation(props) {
   const [isActive, setIsActive] = useState(false);
   const menuImg = isActive ? close : menu;
 
@@ -34,7 +34,7 @@ function Navigation() {
           <li className="list-item">Contact</li>
         </ul>
       </nav>
-      <User />
+      <User {...props} />
     </header>
   );
 }

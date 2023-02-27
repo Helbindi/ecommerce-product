@@ -29,3 +29,35 @@ export const productImages = [
     thumbnail: thumb4,
   },
 ];
+
+export const productData = [
+  {
+    name: "Fall Limited Edition Sneakers",
+    company: "Sneaker Company",
+    desc: "These low-profile sneakers are your perfect casual wear companion. Fearturing a durable rubber outer sole, they'll withstand everything the weather can offer.",
+    cost: 250,
+    sale: 50,
+    images: [
+      {
+        id: 1,
+        image: product1,
+        thumbnail: thumb1,
+      },
+      {
+        id: 2,
+        image: product2,
+        thumbnail: thumb2,
+      },
+      {
+        id: 3,
+        image: product3,
+        thumbnail: thumb3,
+      },
+      {
+        id: 4,
+        image: product4,
+        thumbnail: thumb4,
+      },
+    ],
+  },
+];

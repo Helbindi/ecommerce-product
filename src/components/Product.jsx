@@ -3,15 +3,8 @@ import minus from "../assets/images/icon-minus.svg";
 import plus from "../assets/images/icon-plus.svg";
 import cart from "../assets/images/icon-cart.svg";
 
-function Product() {
-  const [amount, setAmount] = useState(0);
-  const product = {
-    name: "Fall Limited Edition Sneakers",
-    company: "Sneaker Company",
-    desc: "These low-profile sneakers are your perfect casual wear companion. Fearturing a durable rubber outer sole, they'll withstand everything the weather can offer.",
-    cost: 250,
-    sale: 50,
-  };
+function Product({ product, addToCart }) {
+  const [quantity, setQuanitity] = useState(0);
 
   const finalCost =
     product.sale > 0
@@ -20,30 +13,45 @@ function Product() {
 
   function handleIncrement(e) {
     e.preventDefault();
-    setAmount((prev) => {
+    setQuanitity((prev) => {
       return prev + 1;
     });
   }
 
   function handleDecrement(e) {
     e.preventDefault();
-    if (amount > 0) {
-      setAmount((prev) => {
+    if (quantity > 0) {
+      setQuanitity((prev) => {
         return prev - 1;
       });
+    }
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    if (quantity > 0) {
+      const cartItem = {
+        image: product.images[0].thumbnail,
+        name: product.name,
+        cost: finalCost,
+        quantity: quantity,
+      };
+      addToCart(cartItem);
+    } else {
+      return console.error("Cannot add zero items to Shopping Cart");
     }
   }
   return (
     <section className="product-item">
       <article className="product-info">
-        <p className="product-company">{product.company}</p>
-        <h2 className="product-name">{product.name}</h2>
-        <p className="product-desc">{product.desc}</p>
+        <p className="product-company">{product?.company}</p>
+        <h2 className="product-name">{product?.name}</h2>
+        <p className="product-desc">{product?.desc}</p>
 
         <div className="product-pricing">
           <h2 className="product-price">${finalCost}</h2>
-          <p className="product-discount">{product.sale}%</p>
-          <p className="product-cost">${product.cost.toFixed(2)}</p>
+          <p className="product-discount">{product?.sale}%</p>
+          <p className="product-cost">${product?.cost.toFixed(2)}</p>
         </div>
 
         <div className="interface-container">
@@ -53,7 +61,7 @@ function Product() {
               alt="minus-img"
               onClick={(e) => handleDecrement(e)}
             />
-            <p className="product-amount">{amount}</p>
+            <p className="product-quantity">{quantity}</p>
             <img
               src={plus}
               alt="plus-img"
@@ -61,7 +69,7 @@ function Product() {
             />
           </div>
 
-          <button className="btn cart-btn">
+          <button className="btn cart-btn" onClick={(e) => handleClick(e)}>
             <img src={cart} alt="" />
             Add to cart
           </button>
