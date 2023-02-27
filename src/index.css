@@ -429,6 +429,7 @@ p {
   }
 
   .list-item {
+    color: var(--grayblue-clr);
     padding: 39px 10px;
   }
 
