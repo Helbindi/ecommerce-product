@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/Helbindi/ecommerce-product]()
-- Live Site URL: [https://helbindi-ecommerce-product.vercel.app/]()
+- Solution URL: [https://github.com/Helbindi/ecommerce-product](https://github.com/Helbindi/ecommerce-product)
+- Live Site URL: [https://helbindi-ecommerce-product.vercel.app](https://helbindi-ecommerce-product.vercel.app)
 
 ## My process
 
@@ -61,5 +61,5 @@ For this project, the goal was to build reuseable components for the repeated UI
 
 ## Author
 
-- Website - [https://my-projects-site.vercel.app/]()
+- Website - [https://my-projects-site.vercel.app](https://my-projects-site.vercel.app)
 - Frontend Mentor - [@Helbindi](https://www.frontendmentor.io/profile/Helbindi)
